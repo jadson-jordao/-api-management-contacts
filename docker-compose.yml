@@ -1,0 +1,12 @@
+services:
+  db:
+    image: mysql
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123#@!
+    ports:
+      - "3306:3306"
+    volumes:
+      - bd-management-contacts:/var/lib/mysql
+volumes:
+  bd-management-contacts:
