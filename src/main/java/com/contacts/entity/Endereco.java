@@ -5,8 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "TB_ENDERECO")
 @Data
+@Table(name = "TB_ENDERECO")
 public class Endereco implements Serializable {
 
     @Id
@@ -23,8 +23,8 @@ public class Endereco implements Serializable {
     @Column(name = "CEP")
     private Integer cep;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_CONTATO", foreignKey = @ForeignKey(name = "FK_ENDERECO_CONTATO"))
+    @ManyToOne(targetEntity = Contato.class)
+    @JoinColumn(name = "ID_CONTATO", nullable = false, foreignKey = @ForeignKey(name = "FK_ENDERECO_CONTATO"))
     private Contato contato;
 
 }
