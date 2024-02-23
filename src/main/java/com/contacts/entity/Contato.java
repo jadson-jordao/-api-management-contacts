@@ -7,8 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "TB_CONTATO")
 @Data
+@Table(name = "TB_CONTATO")
 public class Contato implements Serializable {
 
 
@@ -29,7 +29,7 @@ public class Contato implements Serializable {
     @Column(name = "DATA_NASCIMENTO")
     private Date dataNascimento;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "contato", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "contato", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Endereco> enderecos;
 
 }
