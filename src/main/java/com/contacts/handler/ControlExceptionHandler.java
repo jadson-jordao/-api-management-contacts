@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestControllerAdvice
 @Slf4j
-public class ApiExceptionHandler {
+public class ControlExceptionHandler {
     /**
      * Este metodo tem como função carregar a exception global gerada pelas validações da anotação @Valid utilizada no
      * controller, e realizar a tratativa da mensagem.
