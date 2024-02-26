@@ -3,8 +3,8 @@ package com.contacts.controller;
 import com.contacts.dto.ContatoCreateDTO;
 import com.contacts.dto.ContatoResponseDTO;
 import com.contacts.dto.ContatoUpdateDTO;
+import com.contacts.handler.message.ResponseMessageError;
 import com.contacts.service.ContatoService;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -34,8 +34,9 @@ public class ContatoController {
             @ApiResponse(responseCode = "201", description = "Contato Criado com Sucesso",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = ContatoResponseDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Erro ao salvar contato",
-                    content = { @Content(mediaType = "application/json") })
+            @ApiResponse(responseCode = "400", description = "Erro ao salvar contato",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ResponseMessageError.class)) })
     })
     @PostMapping
     public ResponseEntity<ContatoResponseDTO> createContact(
@@ -51,7 +52,8 @@ public class ContatoController {
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = ContatoResponseDTO.class)) }),
             @ApiResponse(responseCode = "404", description = "Contato não existe na base",
-                    content = { @Content(mediaType = "application/json") })
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ResponseMessageError.class)) })
     })
     @GetMapping("/{idContato}" )
     public ResponseEntity<?> getContactById(
@@ -69,7 +71,8 @@ public class ContatoController {
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = ContatoResponseDTO.class)) }),
     @ApiResponse(responseCode = "404", description = "Não existe contato cadastrado",
-            content = { @Content(mediaType = "application/json") })
+            content = { @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = ResponseMessageError.class)) })
     })
     @GetMapping
     public ResponseEntity<List<ContatoResponseDTO>> getAllContacts(){
@@ -80,36 +83,33 @@ public class ContatoController {
     @Operation(summary = "Serviço de exclusão de um contato especifico")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Contato excluido com sucesso",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ContatoResponseDTO.class)) }),
+                    content = { @Content(mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", description = "Contato não cadastrado",
-                    content = { @Content(mediaType = "application/json") })
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ResponseMessageError.class)) })
     })
     @DeleteMapping("/{idContato}" )
-    public ResponseEntity<String> deleteContactById(
+    public ResponseEntity<ResponseMessageError> deleteContactById(
             @PathVariable("idContato") Long idContato){
-        boolean isDeleted = contatoService.deleteContactById(idContato);
-        if(isDeleted)
-            return new ResponseEntity<>("Contado de identificador: "+ idContato + " deletado com sucesso!", HttpStatus.OK);
+        contatoService.deleteContactById(idContato);
 
-        return new ResponseEntity<>("Contato de identificador: "+idContato +" não cadastrado!", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(new ResponseMessageError(HttpStatus.OK,
+                "Contado de identificador: "+ idContato + " deletado com sucesso!"), HttpStatus.OK);
     }
 
     @Operation(summary = "Serviço de exclusão de todos os contatos cadastrados")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Contatos excluidos com sucesso",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ContatoResponseDTO.class)) }),
+                    content = { @Content(mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", description = "Contato não cadastrado",
-                    content = { @Content(mediaType = "application/json") })
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ResponseMessageError.class)) })
     })
     @DeleteMapping
-    public ResponseEntity<String> deleteAllContact(){
-        boolean isDeleted = contatoService.deleteAllContact();
-        if(isDeleted)
-            return new ResponseEntity<>("Contatos deletados com sucesso!", HttpStatus.OK);
-
-        return new ResponseEntity<>("Não existe contato a ser excluido!", HttpStatus.NOT_FOUND);
+    public ResponseEntity<ResponseMessageError> deleteAllContact(){
+        contatoService.deleteAllContact();
+        return new ResponseEntity<>(new ResponseMessageError(HttpStatus.OK,
+                "Contatos deletados com suucesso!"), HttpStatus.OK);
     }
 
     @Operation(summary = "Serviço de atualização completa de um contato")
@@ -118,17 +118,15 @@ public class ContatoController {
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = ContatoResponseDTO.class)) }),
             @ApiResponse(responseCode = "404", description = "Contato não cadastrado",
-                    content = { @Content(mediaType = "application/json") })
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ResponseMessageError.class)) })
     })
     @PutMapping("/{idContato}")
     public ResponseEntity<?> updateContactPut(
             @PathVariable("idContato") @NotNull Long idContato,
             @Valid @RequestBody ContatoUpdateDTO contatoUpdateDTO){
         ContatoResponseDTO contatoAtualizado = contatoAtualizado = contatoService.updateContactPut(idContato, contatoUpdateDTO);
-        if(Objects.nonNull(contatoAtualizado))
-            return new ResponseEntity<>(contatoAtualizado, HttpStatus.OK);
-
-        return new ResponseEntity<>("Contato de identificador: "+idContato +" não cadastrado!", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(contatoAtualizado, HttpStatus.OK);
     }
 
     @Operation(summary = "Serviço de atualização parcial de um contato")
@@ -137,16 +135,14 @@ public class ContatoController {
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = ContatoResponseDTO.class)) }),
             @ApiResponse(responseCode = "404", description = "Contato não cadastrado",
-                    content = { @Content(mediaType = "application/json") })
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ResponseMessageError.class)) })
     })
     @PatchMapping("/{idContato}")
     public ResponseEntity<?> updateContactPatch(
             @PathVariable("idContato") @NotNull Long idContato,
             @Valid @RequestBody ContatoUpdateDTO contatoUpdateDTO){
         ContatoResponseDTO contatoAtualizado = contatoAtualizado = contatoService.updateContactPatch(idContato, contatoUpdateDTO);
-        if(Objects.nonNull(contatoAtualizado))
-            return new ResponseEntity<>(contatoAtualizado, HttpStatus.OK);
-
-        return new ResponseEntity<>("Contato de identificador: "+idContato +" não cadastrado!", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(contatoAtualizado, HttpStatus.OK);
     }
 }
