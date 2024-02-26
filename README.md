@@ -1,7 +1,9 @@
 # API de Gerenciamento de Contatos
 
 
-#### Esta API tem como função realizar operações de CRUD de contato. A documentação completa da API pode ser acessada através do seguinte caminho no Swagger que pode ser acessado atraves [deste link](http://18.119.115.175:8080/swagger-ui/index.html#/)
+#### Esta API tem como função realizar operações de CRUD de contato. 
+
+#### A mesma foi documentada com Swagger e pode ser acessada no seguite [link](http://18.119.115.175:8080/swagger-ui/index.html#/)
 ![image](https://github.com/jadson-jordao/api-management-contacts/assets/60200944/d1b5b499-01a1-4ce6-8e53-848c94d22b6e)
 
 ## Metodo DELETE by Id
