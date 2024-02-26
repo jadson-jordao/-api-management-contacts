@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "98b1ce44-4b0e-4a64-a463-6fdd0de7d46a",
+		"name": "API Gerenciamento de Contatos",
+		"description": "StartFragmentEsta API tem como função realizar todas as operações de CRUD para uma entidade de contatoEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13080577"
+	},
+	"item": [
+		{
+			"name": "Cria novo contato",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n    \"nome\": \"Jadson Jordão Silva Junior\",\r\n    \"email\": \"jadsonjordaosilvahotmail.com\",\r\n    \"telefone\": 999057176,\r\n    \"dataNascimento\": \"1991-08-13\",\r\n    \"enderecos\": [\r\n        {\r\n            \"rua\": \"Nova Lima\",\r\n            \"numero\": 572,\r\n            \"cep\": 35681111\r\n        },\r\n        {\r\n            \"rua\": \"teste 2 salve rua\",\r\n            \"numero\": 5555,\r\n            \"cep\": 88888\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/contatos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"contatos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisa todos os contatos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n    \"nome\": \"Jadson Jordão Silva Junior\",\r\n    \"email\": \"jadsonjordaosilvahotmail.com\",\r\n    \"telefone\": 999057176,\r\n    \"dataNascimento\": \"1991-08-13\",\r\n    \"enderecos\": [\r\n        {\r\n            \"rua\": \"Nova Lima\",\r\n            \"numero\": 572,\r\n            \"cep\": 35681111\r\n        },\r\n        {\r\n            \"rua\": \"teste 2 salve rua\",\r\n            \"numero\": 5555,\r\n            \"cep\": 88888\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/contatos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"contatos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisa contatos por Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n    \"nome\": \"Jadson Jordão Silva Junior\",\r\n    \"email\": \"jadsonjordaosilvahotmail.com\",\r\n    \"telefone\": 999057176,\r\n    \"dataNascimento\": \"1991-08-13\",\r\n    \"enderecos\": [\r\n        {\r\n            \"rua\": \"Nova Lima\",\r\n            \"numero\": 572,\r\n            \"cep\": 35681111\r\n        },\r\n        {\r\n            \"rua\": \"teste 2 salve rua\",\r\n            \"numero\": 5555,\r\n            \"cep\": 88888\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/contatos/25",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"contatos",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta contato por Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n    \"nome\": \"Jadson Jordão Silva Junior\",\r\n    \"email\": \"jadsonjordaosilvahotmail.com\",\r\n    \"telefone\": 999057176,\r\n    \"dataNascimento\": \"1991-08-13\",\r\n    \"enderecos\": [\r\n        {\r\n            \"rua\": \"Nova Lima\",\r\n            \"numero\": 572,\r\n            \"cep\": 35681111\r\n        },\r\n        {\r\n            \"rua\": \"teste 2 salve rua\",\r\n            \"numero\": 5555,\r\n            \"cep\": 88888\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/contatos/17",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"contatos",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta todos os contatos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n    \"nome\": \"Jadson Jordão Silva Junior\",\r\n    \"email\": \"jadsonjordaosilvahotmail.com\",\r\n    \"telefone\": 999057176,\r\n    \"dataNascimento\": \"1991-08-13\",\r\n    \"enderecos\": [\r\n        {\r\n            \"rua\": \"Nova Lima\",\r\n            \"numero\": 572,\r\n            \"cep\": 35681111\r\n        },\r\n        {\r\n            \"rua\": \"teste 2 salve rua\",\r\n            \"numero\": 5555,\r\n            \"cep\": 88888\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/contatos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"contatos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualização completa de contato",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n    \"nome\": \"Jadson Jordão Silva Junior\",\r\n    \"email\": \"jadsonjordaosilvahotmail.com\",\r\n    \"telefone\": 999057176,\r\n    \"dataNascimento\": \"1991-08-13\",\r\n    \"enderecos\": [\r\n        {\r\n            \"rua\": \"Nova Lima\",\r\n            \"numero\": 572,\r\n            \"cep\": 35681111\r\n        },\r\n        {\r\n            \"rua\": \"teste 2 salve rua\",\r\n            \"numero\": 5555,\r\n            \"cep\": 88888\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/contatos/45",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"contatos",
+						"45"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualização parcial de contato",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Joao Pereira\",\r\n    \"enderecos\": [\r\n        {\r\n            \"idEndereco\": 5,\r\n            \"cep\": 35681112\r\n        }\r\n    ]\r\n}\r\n   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/contatos/44",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"contatos",
+						"44"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
