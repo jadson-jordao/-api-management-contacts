@@ -22,9 +22,9 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/contatos",
+					"raw": "http://54.144.237.128:8080/v1/contatos",
 					"host": [
-						"localhost"
+						"http://54.144.237.128"
 					],
 					"port": "8080",
 					"path": [
@@ -53,9 +53,9 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/contatos",
+					"raw": "http://54.144.237.128:8080/v1/contatos",
 					"host": [
-						"localhost"
+						"http://54.144.237.128"
 					],
 					"port": "8080",
 					"path": [
@@ -84,9 +84,9 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/contatos/25",
+					"raw": "http://54.144.237.128:8080/v1/contatos/25",
 					"host": [
-						"localhost"
+						"http://54.144.237.128"
 					],
 					"port": "8080",
 					"path": [
@@ -113,9 +113,9 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/contatos/17",
+					"raw": "http://54.144.237.128:8080/v1/contatos/17",
 					"host": [
-						"localhost"
+						"http://54.144.237.128"
 					],
 					"port": "8080",
 					"path": [
@@ -142,9 +142,9 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/contatos",
+					"raw": "http://54.144.237.128:8080/v1/contatos",
 					"host": [
-						"localhost"
+						"http://54.144.237.128"
 					],
 					"port": "8080",
 					"path": [
@@ -170,9 +170,9 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/contatos/45",
+					"raw": "http://54.144.237.128:8080/v1/contatos/45",
 					"host": [
-						"localhost"
+						"http://54.144.237.128"
 					],
 					"port": "8080",
 					"path": [
@@ -199,9 +199,9 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/contatos/44",
+					"raw": "http://54.144.237.128:8080/v1/contatos/44",
 					"host": [
-						"localhost"
+						"http://54.144.237.128"
 					],
 					"port": "8080",
 					"path": [
