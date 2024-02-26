@@ -1,14 +1,20 @@
 package com.contacts.entity;
 
+
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Data
 @Table(name = "TB_CONTATO")
+@AllArgsConstructor
+@Builder
 public class Contato implements Serializable {
 
 
@@ -30,6 +36,10 @@ public class Contato implements Serializable {
     private Date dataNascimento;
 
     @OneToMany(mappedBy = "contato", orphanRemoval = true, cascade = CascadeType.ALL)
-    private List<Endereco> enderecos;
+    private List<Endereco> enderecos = new ArrayList<>();;
+
+    public Contato() {
+
+    }
 
 }
