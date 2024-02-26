@@ -25,7 +25,7 @@
 ## Metodo PUT
 ![image](https://github.com/jadson-jordao/api-management-contacts/assets/60200944/b1a78058-ec6c-4043-82d5-46c94431161a)
 
-### Segue tambem a colletion utilizada para teste no Postman [Uploading API Gerenciamento de Contatos.postman_collection.json…]()
+### Segue tambem [neste caminho](https://github.com/jadson-jordao/api-management-contacts/blob/master/API%20Gerenciamento%20de%20Contatos.postman_collection.json) a colletion utilizada para teste no Postman 
 
 
 #### Esta API esta hospedada na AWS em uma instacia EC2;
